@@ -4,8 +4,8 @@ from staffmanager import db
 class Department(db.Model):
     # Schema for the department  model
     id = db.Column(db.Integer, primary_key=True)
-    department_name = db.column(db.string(30), unique=True, nullable=False)
-    employee = db.relatioship("Employee", backref="department", cascade="all, delete", lazy=True)
+    department_name = db.Column(db.String(30), unique=True, nullable=False)
+    employee = db.relationship("Employee", backref="department", cascade="all, delete", lazy=True)
 
 
     def __repr__(self):
@@ -16,13 +16,14 @@ class Department(db.Model):
 class Employee(db.Model):
     # Schema for the employee model
     id = db.Column(db.Integer, primary_key=True)
-    employee_name = db.column(db.string(50), unique=True, nullable=False)
+    employee_name = db.Column(db.String(50), unique=True, nullable=False)
     # employee_description = db.column(db.text, nullable=False)
     employee_email = db.Column(db.String(150), unique=True, nullable=False)
     employee_position = db.Column(db.String(20), unique=True, nullable=False)
     employee_skills = db.Column(db.String(50), unique=True, nullable=False)
     start_date = db.Column(db.Date, nullable=False)
-    department_id = db.Column(db.Integer, db.ForeignKey("department.id"), ondelete="CASCADE", nullable=False)
+    
+    department_id = db.Column(db.Integer, db.ForeignKey("department.id", ondelete="CASCADE"), nullable=False)
 
     def __repr__(self):
         #__repr__ to represent itself in a form of a string

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3 class="brown-text darken-4 center-align">Add Department</h3>
+
+<div class="row card-panel grey lighten-5">
+    <form class="col s12" method="POST" action="{{ url_for('add_department') }}">
+        <!----add_department-->
+      <div class="row">
+        <div class="input-field col s12">
+            <i class="fa-solid fa-folder prefix grey darken-4-text text lighten-4"></i>
+          <input id="department_name" name="department_name" minlength="2" maxlength="10" type="text" class="validate" required>
+          <label for="department_name">Department Name</label>
+        </div>
+        <!------submit button-->
+        <div class="row">
+            <div class="col s12 center-align">
+                <button type="submit" class="btn-large orange accent-3">
+                    Add Department <i class="fa-solid fa-plus square right"></i>
+                </button>
+          </div>
+      </div>
+    </form>
+  </div>
+
+
+
+{% endblock %}

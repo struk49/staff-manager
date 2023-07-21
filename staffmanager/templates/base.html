@@ -2,13 +2,59 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Manager</title>
+     <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css"> 
+    <title>Staff Manager</title>
 </head>
 <body>
+    <header>
+        <nav class="deep-orange darken-4">
+          <div class="nav-wrapper">
+            <a href="{{ url_for('home') }}" class="brand-logo">Task Manager</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="">Employee</a></li>
+                <li><a href="">Department</a></li>
+            </ul>
+            </div>
+        </nav>
 
-    Hello World!
+        <!-- mobile sidenav -->
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="">Employee</a></li>
+            <li><a href="">Department</a></li>
+        </ul>
+    </header>
 
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+
+
+    <footer class="page-footer grey darken-4">
+        <div class="footer-copyright">
+          <div class="container">
+          Milestone Project 3
+          <a class="white-text right" href="https://codeinstitue.net" target="_blank">&copy; Code Institute</a>
+          </div>
+        </div>
+      </footer>
+    
+
+
+
+
+
+
+     <!-- Compiled and minified JavaScript -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+     <script src="https://kit.fontawesome.com/256864fd36.js" crossorigin="anonymous"></script>
+     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
